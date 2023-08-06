@@ -27,21 +27,15 @@ public:
 private:
     FusionAudioProcessor& audioProcessor;
 
-    Slider f0Slider;
-    Slider f1Slider;
-    Slider f2Slider;
-    Slider f3Slider;
-    Slider f4Slider;
-    Slider f5Slider;
-    Slider f6Slider;
+    Slider attackSlider;
+    Slider decaySlider;
+    Slider sustainSlider;
+    Slider releaseSlider;
 public:
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f0Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f1Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f2Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f3Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f4Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f5Value;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> f6Value;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FusionAudioProcessorEditor)
 };

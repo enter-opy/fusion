@@ -22,22 +22,16 @@ FusionAudioProcessor::FusionAudioProcessor()
                        ),
     treeState(*this, nullptr, "PARAMETER",
         {
-            std::make_unique<AudioParameterFloat>(F0_ID, F0_NAME, 0.0, 1.0, 1.0),
-            std::make_unique<AudioParameterFloat>(F1_ID, F1_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(F2_ID, F2_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(F3_ID, F3_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(F4_ID, F4_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(F5_ID, F5_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(F6_ID, F6_NAME, 0.0, 1.0, 0.0)
+            std::make_unique<AudioParameterFloat>(ATTACK_ID, ATTACK_NAME, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID, DECAY_NAME, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID, SUSTAIN_NAME, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID, RELEASE_NAME, 0.0, 2000.0, 100.0)
         }
     ),
-    f0Value(1.0),
-    f1Value(0.0),
-    f2Value(0.0),
-    f3Value(0.0),
-    f4Value(0.0),
-    f5Value(0.0),
-    f6Value(0.0)
+    attack(20.0),
+    decay(40.0),
+    sustain(0.0),
+    release(100.0)
 
 #endif
 {
@@ -159,27 +153,18 @@ bool FusionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) c
 }
 #endif
 
-double FusionAudioProcessor::getTreeStateValues(char* token) {
-    if (token == "f0") {
-        return f0Value;
+double FusionAudioProcessor::getTreeStateValues(int token) {
+    if (token == 0) {
+        return attack;
     }
-    else if (token == "f1") {
-        return f1Value;
+    else if (token == 1) {
+        return decay;
     }
-    else if (token == "f2") {
-        return f2Value;
+    else if (token == 2) {
+        return sustain;
     }
-    else if (token == "f3") {
-        return f3Value;
-    }
-    else if (token == "f4") {
-        return f4Value;
-    }
-    else if (token == "f5") {
-        return f5Value;
-    }
-    else if (token == "f6") {
-        return f6Value;
+    else if (token == 3) {
+        return release;
     }
 }
 
@@ -187,17 +172,14 @@ void FusionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 {
     ScopedNoDenormals noDenormals;
 
-    f0Value = *treeState.getRawParameterValue(F0_ID);
-    f1Value = *treeState.getRawParameterValue(F1_ID);
-    f2Value = *treeState.getRawParameterValue(F2_ID);
-    f3Value = *treeState.getRawParameterValue(F3_ID);
-    f4Value = *treeState.getRawParameterValue(F4_ID);
-    f5Value = *treeState.getRawParameterValue(F5_ID);
-    f6Value = *treeState.getRawParameterValue(F6_ID);
+    attack = *treeState.getRawParameterValue(ATTACK_ID);
+    decay = *treeState.getRawParameterValue(DECAY_ID);
+    sustain = *treeState.getRawParameterValue(SUSTAIN_ID);
+    release = *treeState.getRawParameterValue(RELEASE_ID);
 
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
-            voice->getFrequencies(f0Value, f1Value, f2Value, f3Value, f4Value, f5Value, f6Value);
+            voice->getEnvelope(attack, decay, sustain, release);
         }
     }
 

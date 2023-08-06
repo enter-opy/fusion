@@ -12,29 +12,17 @@
 #include "SynthSound.h"
 #include "SynthVoice.h"
 
-#define F0_ID "f0"
-#define F0_NAME "Frequency0"
+#define ATTACK_ID "attack"
+#define ATTACK_NAME "Attack"
 
-#define F1_ID "f1"
-#define F1_NAME "Frequency1"
+#define DECAY_ID "decay"
+#define DECAY_NAME "Decay"
 
-#define F2_ID "f2"
-#define F2_NAME "Frequency2"
+#define SUSTAIN_ID "sustain"
+#define SUSTAIN_NAME "Sustain"
 
-#define F3_ID "f3"
-#define F3_NAME "Frequency3"
-
-#define F4_ID "f4"
-#define F4_NAME "Frequency4"
-
-#define F5_ID "f5"
-#define F5_NAME "Frequency5"
-
-#define F6_ID "f6"
-#define F6_NAME "Frequency6"
-
-#define F7_ID "f7"
-#define F7_NAME "Frequency7"
+#define RELEASE_ID "release"
+#define RELEASE_NAME "Release"
 
 //==============================================================================
 /**
@@ -82,7 +70,7 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    double getTreeStateValues(char*);
+    double getTreeStateValues(int);
 
     AudioProcessorValueTreeState treeState;
 
@@ -92,13 +80,10 @@ private:
 
     double lastSampleRate;
 
-    float f0Value;
-    float f1Value;
-    float f2Value;
-    float f3Value;
-    float f4Value;
-    float f5Value;
-    float f6Value;
+    float attack;
+    float decay;
+    float sustain;
+    float release;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FusionAudioProcessor)
