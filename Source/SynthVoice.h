@@ -69,6 +69,18 @@ private:
     double wave;
 
     maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
+    maxiOsc osc;
 
     maxiEnv env;
 };
