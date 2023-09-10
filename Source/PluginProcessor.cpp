@@ -179,7 +179,7 @@ void FusionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
-            voice->getEnvelope(attack, decay, sustain, release);
+            voice->getEnvelope_0(attack, decay, sustain, release);
         }
     }
 
