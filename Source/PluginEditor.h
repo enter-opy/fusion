@@ -88,10 +88,65 @@ private:
     Slider inharmonicitySlider_8;
    
 public:
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_8;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> decayValue_8;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> sustainValue_8;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> releaseValue_8;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_8;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_0;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_1;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_2;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_3;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_4;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_5;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_6;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_7;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_8;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FusionAudioProcessorEditor)
 };

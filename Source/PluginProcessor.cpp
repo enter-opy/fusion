@@ -22,16 +22,115 @@ FusionAudioProcessor::FusionAudioProcessor()
                        ),
     treeState(*this, nullptr, "PARAMETER",
         {
-            std::make_unique<AudioParameterFloat>(ATTACK_ID, ATTACK_NAME, 0.0, 2000.0, 20.0),
-            std::make_unique<AudioParameterFloat>(DECAY_ID, DECAY_NAME, 0.0, 2000.0, 40.0),
-            std::make_unique<AudioParameterFloat>(SUSTAIN_ID, SUSTAIN_NAME, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(RELEASE_ID, RELEASE_NAME, 0.0, 2000.0, 100.0)
-        }
-    ),
-    attack(20.0),
-    decay(40.0),
-    sustain(0.0),
-    release(100.0)
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_0, ATTACK_NAME_0, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_1, ATTACK_NAME_1, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_2, ATTACK_NAME_2, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_3, ATTACK_NAME_3, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_4, ATTACK_NAME_4, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_5, ATTACK_NAME_5, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_6, ATTACK_NAME_6, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_7, ATTACK_NAME_7, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(ATTACK_ID_8, ATTACK_NAME_8, 0.0, 2000.0, 20.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_0, DECAY_NAME_0, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_1, DECAY_NAME_1, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_2, DECAY_NAME_2, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_3, DECAY_NAME_3, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_4, DECAY_NAME_4, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_5, DECAY_NAME_5, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_6, DECAY_NAME_6, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_7, DECAY_NAME_7, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(DECAY_ID_8, DECAY_NAME_8, 0.0, 2000.0, 40.0),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_0, SUSTAIN_NAME_0, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_1, SUSTAIN_NAME_1, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_2, SUSTAIN_NAME_2, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_3, SUSTAIN_NAME_3, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_4, SUSTAIN_NAME_4, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_5, SUSTAIN_NAME_5, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_6, SUSTAIN_NAME_6, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_7, SUSTAIN_NAME_7, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(SUSTAIN_ID_8, SUSTAIN_NAME_8, 0.1, 1.0, 0.1),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_0, RELEASE_NAME_0, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_1, RELEASE_NAME_1, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_2, RELEASE_NAME_2, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_3, RELEASE_NAME_3, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_4, RELEASE_NAME_4, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_5, RELEASE_NAME_5, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_6, RELEASE_NAME_6, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_7, RELEASE_NAME_7, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(RELEASE_ID_8, RELEASE_NAME_8, 0.0, 2000.0, 100.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_0, MAGNITUDE_NAME_0, 0.0, 1.0, 1.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_1, MAGNITUDE_NAME_1, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_2, MAGNITUDE_NAME_2, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_3, MAGNITUDE_NAME_3, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_4, MAGNITUDE_NAME_4, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_5, MAGNITUDE_NAME_5, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_6, MAGNITUDE_NAME_6, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_7, MAGNITUDE_NAME_7, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_8, MAGNITUDE_NAME_8, 0.0, 1.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_0, INHARMONICITY_NAME_0, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_1, INHARMONICITY_NAME_1, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_2, INHARMONICITY_NAME_2, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_3, INHARMONICITY_NAME_3, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_4, INHARMONICITY_NAME_4, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_5, INHARMONICITY_NAME_5, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_6, INHARMONICITY_NAME_6, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_7, INHARMONICITY_NAME_7, -50.0, 50.0, 0.0),
+            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_8, INHARMONICITY_NAME_8, -50.0, 50.0, 0.0)
+        }),
+    attack_0(20.0),
+    attack_1(20.0),
+    attack_2(20.0),
+    attack_3(20.0),
+    attack_4(20.0),
+    attack_5(20.0),
+    attack_6(20.0),
+    attack_7(20.0),
+    attack_8(20.0),
+    decay_0(40.0),
+    decay_1(40.0),
+    decay_2(40.0),
+    decay_3(40.0),
+    decay_4(40.0),
+    decay_5(40.0),
+    decay_6(40.0),
+    decay_7(40.0),
+    decay_8(40.0),
+    sustain_0(0.1),
+    sustain_1(0.1),
+    sustain_2(0.1),
+    sustain_3(0.1),
+    sustain_4(0.1),
+    sustain_5(0.1),
+    sustain_6(0.1),
+    sustain_7(0.1),
+    sustain_8(0.1),
+    release_0(100.0),
+    release_1(100.0),
+    release_2(100.0),
+    release_3(100.0),
+    release_4(100.0),
+    release_5(100.0),
+    release_6(100.0),
+    release_7(100.0),
+    release_8(100.0),
+    magnitude_0(1.0),
+    magnitude_1(0.0),
+    magnitude_2(0.0),
+    magnitude_3(0.0),
+    magnitude_4(0.0),
+    magnitude_5(0.0),
+    magnitude_6(0.0),
+    magnitude_7(0.0),
+    magnitude_8(0.0),
+    inharmonicity_0(0.0),
+    inharmonicity_1(0.0),
+    inharmonicity_2(0.0),
+    inharmonicity_3(0.0),
+    inharmonicity_4(0.0),
+    inharmonicity_5(0.0),
+    inharmonicity_6(0.0),
+    inharmonicity_7(0.0),
+    inharmonicity_8(0.0)
 
 #endif
 {
@@ -155,16 +254,171 @@ bool FusionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) c
 
 double FusionAudioProcessor::getTreeStateValues(int token) {
     if (token == 0) {
-        return attack;
+        return attack_0;
     }
     else if (token == 1) {
-        return decay;
+        return attack_1;
     }
     else if (token == 2) {
-        return sustain;
+        return attack_2;
     }
     else if (token == 3) {
-        return release;
+        return attack_3;
+    }
+    else if (token == 4) {
+        return attack_4;
+    }
+    else if (token == 5) {
+        return attack_5;
+    }
+    else if (token == 6) {
+        return attack_6;
+    }
+    else if (token == 7) {
+        return attack_7;
+    }
+    else if (token == 8) {
+        return attack_8;
+    }
+
+    else if (token == 10) {
+        return decay_0;
+    }
+    else if (token == 11) {
+        return decay_1;
+    }
+    else if (token == 12) {
+        return decay_2;
+    }
+    else if (token == 13) {
+        return decay_3;
+    }
+    else if (token == 14) {
+        return decay_4;
+    }
+    else if (token == 15) {
+        return decay_5;
+    }
+    else if (token == 16) {
+        return decay_6;
+    }
+    else if (token == 17) {
+        return decay_7;
+    }
+    else if (token == 18) {
+        return decay_8;
+    }
+
+    else if (token == 20) {
+        return sustain_0;
+    }
+    else if (token == 21) {
+        return sustain_1;
+    }
+    else if (token == 22) {
+        return sustain_2;
+    }
+    else if (token == 23) {
+        return sustain_3;
+    }
+    else if (token == 24) {
+        return sustain_4;
+    }
+    else if (token == 25) {
+        return sustain_5;
+    }
+    else if (token == 26) {
+        return sustain_6;
+    }
+    else if (token == 27) {
+        return sustain_7;
+    }
+    else if (token == 28) {
+        return sustain_8;
+    }
+
+    else if (token == 30) {
+        return release_0;
+    }
+    else if (token == 31) {
+        return release_1;
+    }
+    else if (token == 32) {
+        return release_2;
+    }
+    else if (token == 33) {
+        return release_3;
+    }
+    else if (token == 34) {
+        return release_4;
+    }
+    else if (token == 35) {
+        return release_5;
+    }
+    else if (token == 36) {
+        return release_6;
+    }
+    else if (token == 37) {
+        return release_7;
+    }
+    else if (token == 38) {
+        return release_8;
+    }
+
+    else if (token == 40) {
+        return magnitude_0;
+    }
+    else if (token == 41) {
+        return magnitude_1;
+    }
+    else if (token == 42) {
+        return magnitude_2;
+    }
+    else if (token == 43) {
+        return magnitude_3;
+    }
+    else if (token == 44) {
+        return magnitude_4;
+    }
+    else if (token == 45) {
+        return magnitude_5;
+    }
+    else if (token == 46) {
+        return magnitude_6;
+    }
+    else if (token == 47) {
+        return magnitude_7;
+    }
+    else if (token == 48) {
+        return magnitude_8;
+    }
+
+    else if (token == 50) {
+        return inharmonicity_0;
+    }
+    else if (token == 51) {
+        return inharmonicity_1;
+    }
+    else if (token == 52) {
+        return inharmonicity_2;
+    }
+    else if (token == 53) {
+        return inharmonicity_3;
+    }
+    else if (token == 54) {
+        return inharmonicity_4;
+    }
+    else if (token == 55) {
+        return inharmonicity_5;
+    }
+    else if (token == 56) {
+        return inharmonicity_6;
+    }
+    else if (token == 57) {
+        return inharmonicity_7;
+    }
+    else if (token == 58) {
+        return inharmonicity_8;
     }
 }
 
@@ -172,14 +426,77 @@ void FusionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 {
     ScopedNoDenormals noDenormals;
 
-    attack = *treeState.getRawParameterValue(ATTACK_ID);
-    decay = *treeState.getRawParameterValue(DECAY_ID);
-    sustain = *treeState.getRawParameterValue(SUSTAIN_ID);
-    release = *treeState.getRawParameterValue(RELEASE_ID);
+    attack_0 = *treeState.getRawParameterValue(ATTACK_ID_0);
+    attack_1 = *treeState.getRawParameterValue(ATTACK_ID_1);
+    attack_2 = *treeState.getRawParameterValue(ATTACK_ID_2);
+    attack_3 = *treeState.getRawParameterValue(ATTACK_ID_3);
+    attack_4 = *treeState.getRawParameterValue(ATTACK_ID_4);
+    attack_5 = *treeState.getRawParameterValue(ATTACK_ID_5);
+    attack_6 = *treeState.getRawParameterValue(ATTACK_ID_6);
+    attack_7 = *treeState.getRawParameterValue(ATTACK_ID_7);
+    attack_8 = *treeState.getRawParameterValue(ATTACK_ID_8);
+
+    decay_0 = *treeState.getRawParameterValue(DECAY_ID_0);
+    decay_1 = *treeState.getRawParameterValue(DECAY_ID_1);
+    decay_2 = *treeState.getRawParameterValue(DECAY_ID_2);
+    decay_3 = *treeState.getRawParameterValue(DECAY_ID_3);
+    decay_4 = *treeState.getRawParameterValue(DECAY_ID_4);
+    decay_5 = *treeState.getRawParameterValue(DECAY_ID_5);
+    decay_6 = *treeState.getRawParameterValue(DECAY_ID_6);
+    decay_7 = *treeState.getRawParameterValue(DECAY_ID_7);
+    decay_8 = *treeState.getRawParameterValue(DECAY_ID_8);
+    
+    sustain_0 = *treeState.getRawParameterValue(SUSTAIN_ID_0);
+    sustain_1 = *treeState.getRawParameterValue(SUSTAIN_ID_1);
+    sustain_2 = *treeState.getRawParameterValue(SUSTAIN_ID_2);
+    sustain_3 = *treeState.getRawParameterValue(SUSTAIN_ID_3);
+    sustain_4 = *treeState.getRawParameterValue(SUSTAIN_ID_4);
+    sustain_5 = *treeState.getRawParameterValue(SUSTAIN_ID_5);
+    sustain_6 = *treeState.getRawParameterValue(SUSTAIN_ID_6);
+    sustain_7 = *treeState.getRawParameterValue(SUSTAIN_ID_7);
+    sustain_8 = *treeState.getRawParameterValue(SUSTAIN_ID_8);
+
+    release_0 = *treeState.getRawParameterValue(RELEASE_ID_0);
+    release_1 = *treeState.getRawParameterValue(RELEASE_ID_1);
+    release_2 = *treeState.getRawParameterValue(RELEASE_ID_2);
+    release_3 = *treeState.getRawParameterValue(RELEASE_ID_3);
+    release_4 = *treeState.getRawParameterValue(RELEASE_ID_4);
+    release_5 = *treeState.getRawParameterValue(RELEASE_ID_5);
+    release_6 = *treeState.getRawParameterValue(RELEASE_ID_6);
+    release_7 = *treeState.getRawParameterValue(RELEASE_ID_7);
+    release_8 = *treeState.getRawParameterValue(RELEASE_ID_8);
+
+    magnitude_0 = *treeState.getRawParameterValue(MAGNITUDE_ID_0);
+    magnitude_1 = *treeState.getRawParameterValue(MAGNITUDE_ID_1);
+    magnitude_2 = *treeState.getRawParameterValue(MAGNITUDE_ID_2);
+    magnitude_3 = *treeState.getRawParameterValue(MAGNITUDE_ID_3);
+    magnitude_4 = *treeState.getRawParameterValue(MAGNITUDE_ID_4);
+    magnitude_5 = *treeState.getRawParameterValue(MAGNITUDE_ID_5);
+    magnitude_6 = *treeState.getRawParameterValue(MAGNITUDE_ID_6);
+    magnitude_7 = *treeState.getRawParameterValue(MAGNITUDE_ID_7);
+    magnitude_8 = *treeState.getRawParameterValue(MAGNITUDE_ID_8);
+
+    inharmonicity_0 = *treeState.getRawParameterValue(INHARMONICITY_ID_0);
+    inharmonicity_1 = *treeState.getRawParameterValue(INHARMONICITY_ID_1);
+    inharmonicity_2 = *treeState.getRawParameterValue(INHARMONICITY_ID_2);
+    inharmonicity_3 = *treeState.getRawParameterValue(INHARMONICITY_ID_3);
+    inharmonicity_4 = *treeState.getRawParameterValue(INHARMONICITY_ID_4);
+    inharmonicity_5 = *treeState.getRawParameterValue(INHARMONICITY_ID_5);
+    inharmonicity_6 = *treeState.getRawParameterValue(INHARMONICITY_ID_6);
+    inharmonicity_7 = *treeState.getRawParameterValue(INHARMONICITY_ID_7);
+    inharmonicity_8 = *treeState.getRawParameterValue(INHARMONICITY_ID_8);
 
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
-            voice->getEnvelope_0(attack, decay, sustain, release);
+            voice->getParameters_0(attack_0, decay_0, sustain_0, release_0, magnitude_0, inharmonicity_0);
+            voice->getParameters_1(attack_1, decay_1, sustain_1, release_1, magnitude_1, inharmonicity_1);
+            voice->getParameters_2(attack_2, decay_2, sustain_2, release_2, magnitude_2, inharmonicity_2);
+            voice->getParameters_3(attack_3, decay_3, sustain_3, release_3, magnitude_3, inharmonicity_3);
+            voice->getParameters_4(attack_4, decay_4, sustain_4, release_4, magnitude_4, inharmonicity_4);
+            voice->getParameters_5(attack_5, decay_5, sustain_5, release_5, magnitude_5, inharmonicity_5);
+            voice->getParameters_6(attack_6, decay_6, sustain_6, release_6, magnitude_6, inharmonicity_6);
+            voice->getParameters_7(attack_7, decay_7, sustain_7, release_7, magnitude_7, inharmonicity_7);
+            voice->getParameters_8(attack_8, decay_8, sustain_8, release_8, magnitude_8, inharmonicity_8);
         }
     }
 

@@ -44,17 +44,17 @@ public:
 
     void renderNextBlock(AudioBuffer<float>& outputBuffer, int startSample, int numSamples) override {
         for (int sample = 0; sample < numSamples; sample++) {
-            wave_0 = envelope_0.adsr(oscilator_0.saw(frequency + inharmonicity_0) * magnitude_0, envelope_0.trigger);
-            wave_1 = envelope_1.adsr(oscilator_1.saw(frequency + inharmonicity_1) * magnitude_1, envelope_1.trigger);
-            wave_2 = envelope_2.adsr(oscilator_2.saw(frequency + inharmonicity_2) * magnitude_2, envelope_2.trigger);
-            wave_3 = envelope_3.adsr(oscilator_3.saw(frequency + inharmonicity_3) * magnitude_3, envelope_3.trigger);
-            wave_4 = envelope_4.adsr(oscilator_4.saw(frequency + inharmonicity_4) * magnitude_4, envelope_4.trigger);
-            wave_5 = envelope_5.adsr(oscilator_5.saw(frequency + inharmonicity_5) * magnitude_5, envelope_5.trigger);
-            wave_6 = envelope_6.adsr(oscilator_6.saw(frequency + inharmonicity_6) * magnitude_6, envelope_6.trigger);
-            wave_7 = envelope_7.adsr(oscilator_7.saw(frequency + inharmonicity_7) * magnitude_7, envelope_7.trigger);
-            wave_8 = envelope_8.adsr(oscilator_8.saw(frequency + inharmonicity_8) * magnitude_8, envelope_8.trigger);
+            wave_0 = envelope_0.adsr(oscilator_0.sinewave(frequency + inharmonicity_0) * magnitude_0, envelope_0.trigger);
+            wave_1 = envelope_1.adsr(oscilator_1.sinewave(2 * frequency + inharmonicity_1) * magnitude_1, envelope_1.trigger);
+            wave_2 = envelope_2.adsr(oscilator_2.sinewave(3 * frequency + inharmonicity_2) * magnitude_2, envelope_2.trigger);
+            wave_3 = envelope_3.adsr(oscilator_3.sinewave(4 * frequency + inharmonicity_3) * magnitude_3, envelope_3.trigger);
+            wave_4 = envelope_4.adsr(oscilator_4.sinewave(5 * frequency + inharmonicity_4) * magnitude_4, envelope_4.trigger);
+            wave_5 = envelope_5.adsr(oscilator_5.sinewave(6 * frequency + inharmonicity_5) * magnitude_5, envelope_5.trigger);
+            wave_6 = envelope_6.adsr(oscilator_6.sinewave(7 * frequency + inharmonicity_6) * magnitude_6, envelope_6.trigger);
+            wave_7 = envelope_7.adsr(oscilator_7.sinewave(8 * frequency + inharmonicity_7) * magnitude_7, envelope_7.trigger);
+            wave_8 = envelope_8.adsr(oscilator_8.sinewave(9 * frequency + inharmonicity_8) * magnitude_8, envelope_8.trigger);
 
-            double sound = (wave_0 + wave_1 + wave_2 + wave_3 + wave_4 + wave_5 + wave_6 + wave_7 + wave_8) / (magnitude_0 + magnitude_1 + magnitude_2 + magnitude_3 + magnitude_4 + magnitude_5 + magnitude_6 + magnitude_7 + magnitude_8);
+            double sound = (wave_0 + wave_1 + wave_2 + wave_3 + wave_4 + wave_5 + wave_6 + wave_7 + wave_8) / (magnitude_0 + magnitude_1 + magnitude_2 + magnitude_3 + magnitude_4 + magnitude_5 + magnitude_6 + magnitude_7 + magnitude_8 + FLT_EPSILON);
 
             for (int channel = 0; channel < outputBuffer.getNumChannels(); channel++) {
                 outputBuffer.addSample(channel, startSample, sound);
@@ -64,11 +64,94 @@ public:
         }
     }
     
-    void getEnvelope_0(float attack, float decay, float sustain, float release) { 
+    void getParameters_0(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) { 
         envelope_0.setAttack(attack);
         envelope_0.setDecay(decay);
         envelope_0.setSustain(sustain);
         envelope_0.setRelease(release);
+
+        magnitude_0 = magnitude;
+        inharmonicity_0 = inharmonicity;
+    }
+
+    void getParameters_1(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_1.setAttack(attack);
+        envelope_1.setDecay(decay);
+        envelope_1.setSustain(sustain);
+        envelope_1.setRelease(release);
+
+        magnitude_1 = magnitude;
+        inharmonicity_1 = inharmonicity;
+    }
+
+    void getParameters_2(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_2.setAttack(attack);
+        envelope_2.setDecay(decay);
+        envelope_2.setSustain(sustain);
+        envelope_2.setRelease(release);
+
+        magnitude_2 = magnitude;
+        inharmonicity_2 = inharmonicity;
+    }
+
+    void getParameters_3(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_3.setAttack(attack);
+        envelope_3.setDecay(decay);
+        envelope_3.setSustain(sustain);
+        envelope_3.setRelease(release);
+
+        magnitude_3 = magnitude;
+        inharmonicity_3 = inharmonicity;
+    }
+
+    void getParameters_4(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_4.setAttack(attack);
+        envelope_4.setDecay(decay);
+        envelope_4.setSustain(sustain);
+        envelope_4.setRelease(release);
+
+        magnitude_4 = magnitude;
+        inharmonicity_4 = inharmonicity;
+    }
+
+    void getParameters_5(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_5.setAttack(attack);
+        envelope_5.setDecay(decay);
+        envelope_5.setSustain(sustain);
+        envelope_5.setRelease(release);
+
+        magnitude_5 = magnitude;
+        inharmonicity_5 = inharmonicity;
+    }
+
+    void getParameters_6(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_6.setAttack(attack);
+        envelope_6.setDecay(decay);
+        envelope_6.setSustain(sustain);
+        envelope_6.setRelease(release);
+
+        magnitude_6 = magnitude;
+        inharmonicity_6 = inharmonicity;
+    }
+
+    void getParameters_7(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_7.setAttack(attack);
+        envelope_7.setDecay(decay);
+        envelope_7.setSustain(sustain);
+        envelope_7.setRelease(release);
+
+        magnitude_7 = magnitude;
+        inharmonicity_7 = inharmonicity;
+    }
+
+    void getParameters_8(float attack, float decay, float sustain, float release, float magnitude, float inharmonicity) {
+        envelope_8.setAttack(attack);
+        envelope_8.setDecay(decay);
+        envelope_8.setSustain(sustain);
+        envelope_8.setRelease(release);
+
+        magnitude_8 = magnitude;
+        inharmonicity_8 = inharmonicity;
     }
 
 private:
