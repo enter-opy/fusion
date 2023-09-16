@@ -24,12 +24,37 @@ public:
         frequency = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
         
         envelope_0.trigger = 1;
+        envelope_1.trigger = 1;
+        envelope_2.trigger = 1;
+        envelope_3.trigger = 1;
+        envelope_4.trigger = 1;
+        envelope_5.trigger = 1;
+        envelope_6.trigger = 1;
+        envelope_7.trigger = 1;
+        envelope_8.trigger = 1;
     }
 
     void stopNote(float velocity, bool allowTailOff) override {
         envelope_0.trigger = 0;
+        envelope_1.trigger = 0;
+        envelope_2.trigger = 0;
+        envelope_3.trigger = 0;
+        envelope_4.trigger = 0;
+        envelope_5.trigger = 0;
+        envelope_6.trigger = 0;
+        envelope_7.trigger = 0;
+        envelope_8.trigger = 0;
 
-        if (envelope_0.adsr(wave, envelope_0.trigger) == 0) {
+        if (envelope_0.adsr(wave_0, envelope_0.trigger) == 0
+            && envelope_1.adsr(wave_1, envelope_0.trigger) == 0
+            && envelope_2.adsr(wave_2, envelope_1.trigger) == 0
+            && envelope_3.adsr(wave_3, envelope_2.trigger) == 0
+            && envelope_4.adsr(wave_4, envelope_3.trigger) == 0
+            && envelope_5.adsr(wave_5, envelope_4.trigger) == 0
+            && envelope_6.adsr(wave_6, envelope_5.trigger) == 0
+            && envelope_7.adsr(wave_7, envelope_6.trigger) == 0
+            && envelope_8.adsr(wave_8, envelope_7.trigger) == 0
+            ) {
             clearCurrentNote();
         }
     }
@@ -156,8 +181,6 @@ public:
 
 private:
     double frequency;
-
-    double wave;
 
     double wave_0;
     double wave_1;

@@ -238,163 +238,163 @@ FusionAudioProcessorEditor::FusionAudioProcessorEditor (FusionAudioProcessor& p)
     addAndMakeVisible(&sustainSlider_8);
 
     releaseSlider_0.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_0.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_0.setRange(0.0, 2000.0, 1.0);
     releaseSlider_0.setValue(audioProcessor.getTreeStateValues(30));
     releaseSlider_0.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_0);
 
     releaseSlider_1.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_1.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_1.setRange(0.0, 2000.0, 1.0);
     releaseSlider_1.setValue(audioProcessor.getTreeStateValues(31));
     releaseSlider_1.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_1);
 
     releaseSlider_2.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_2.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_2.setRange(0.0, 2000.0, 1.0);
     releaseSlider_2.setValue(audioProcessor.getTreeStateValues(32));
     releaseSlider_2.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_2);
 
     releaseSlider_3.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_3.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_3.setRange(0.0, 2000.0, 1.0);
     releaseSlider_3.setValue(audioProcessor.getTreeStateValues(33));
     releaseSlider_3.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_3);
 
     releaseSlider_4.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_4.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_4.setRange(0.0, 2000.0, 1.0);
     releaseSlider_4.setValue(audioProcessor.getTreeStateValues(34));
     releaseSlider_4.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_4);
 
     releaseSlider_5.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_5.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_5.setRange(0.0, 2000.0, 1.0);
     releaseSlider_5.setValue(audioProcessor.getTreeStateValues(35));
     releaseSlider_5.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_5);
 
     releaseSlider_6.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_6.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_6.setRange(0.0, 2000.0, 1.0);
     releaseSlider_6.setValue(audioProcessor.getTreeStateValues(36));
     releaseSlider_6.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_6);
 
     releaseSlider_7.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_7.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_7.setRange(0.0, 2000.0, 1.0);
     releaseSlider_7.setValue(audioProcessor.getTreeStateValues(37));
     releaseSlider_7.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_7);
 
     releaseSlider_8.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    releaseSlider_8.setRange(0.0, 2000.0, 100.0);
+    releaseSlider_8.setRange(0.0, 2000.0, 1.0);
     releaseSlider_8.setValue(audioProcessor.getTreeStateValues(38));
     releaseSlider_8.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&releaseSlider_8);
 
     magnitudeSlider_0.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_0.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_0.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_0.setValue(audioProcessor.getTreeStateValues(40));
     magnitudeSlider_0.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_0);
 
     magnitudeSlider_1.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_1.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_1.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_1.setValue(audioProcessor.getTreeStateValues(41));
     magnitudeSlider_1.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_1);
 
     magnitudeSlider_2.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_2.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_2.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_2.setValue(audioProcessor.getTreeStateValues(42));
     magnitudeSlider_2.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_2);
 
     magnitudeSlider_3.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_3.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_3.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_3.setValue(audioProcessor.getTreeStateValues(43));
     magnitudeSlider_3.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_3);
 
     magnitudeSlider_4.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_4.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_4.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_4.setValue(audioProcessor.getTreeStateValues(44));
     magnitudeSlider_4.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_4);
 
     magnitudeSlider_5.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_5.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_5.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_5.setValue(audioProcessor.getTreeStateValues(45));
     magnitudeSlider_5.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_5);
 
     magnitudeSlider_6.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_6.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_6.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_6.setValue(audioProcessor.getTreeStateValues(46));
     magnitudeSlider_6.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_6);
 
     magnitudeSlider_7.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_7.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_7.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_7.setValue(audioProcessor.getTreeStateValues(47));
     magnitudeSlider_7.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_7);
 
     magnitudeSlider_8.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    magnitudeSlider_8.setRange(0.0, 2000.0, 20.0);
+    magnitudeSlider_8.setRange(0.0, 1.0, 0.01);
     magnitudeSlider_8.setValue(audioProcessor.getTreeStateValues(48));
     magnitudeSlider_8.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&magnitudeSlider_8);
 
     inharmonicitySlider_0.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_0.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_0.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_0.setValue(audioProcessor.getTreeStateValues(50));
     inharmonicitySlider_0.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_0);
 
     inharmonicitySlider_1.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_1.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_1.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_1.setValue(audioProcessor.getTreeStateValues(51));
     inharmonicitySlider_1.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_1);
 
     inharmonicitySlider_2.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_2.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_2.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_2.setValue(audioProcessor.getTreeStateValues(52));
     inharmonicitySlider_2.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_2);
 
     inharmonicitySlider_3.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_3.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_3.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_3.setValue(audioProcessor.getTreeStateValues(53));
     inharmonicitySlider_3.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_3);
 
     inharmonicitySlider_4.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_4.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_4.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_4.setValue(audioProcessor.getTreeStateValues(54));
     inharmonicitySlider_4.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_4);
 
     inharmonicitySlider_5.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_5.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_5.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_5.setValue(audioProcessor.getTreeStateValues(55));
     inharmonicitySlider_5.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_5);
 
     inharmonicitySlider_6.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_6.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_6.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_6.setValue(audioProcessor.getTreeStateValues(56));
     inharmonicitySlider_6.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_6);
 
     inharmonicitySlider_7.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_7.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_7.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_7.setValue(audioProcessor.getTreeStateValues(57));
     inharmonicitySlider_7.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_7);
 
     inharmonicitySlider_8.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    inharmonicitySlider_8.setRange(0.0, 2000.0, 20.0);
+    inharmonicitySlider_8.setRange(-50.0, 50.0, 1.0);
     inharmonicitySlider_8.setValue(audioProcessor.getTreeStateValues(58));
     inharmonicitySlider_8.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     addAndMakeVisible(&inharmonicitySlider_8);
