@@ -67,15 +67,14 @@ FusionAudioProcessor::FusionAudioProcessor()
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_6, MAGNITUDE_NAME_6, 0.0, 1.0, 0.0),
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_7, MAGNITUDE_NAME_7, 0.0, 1.0, 0.0),
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_8, MAGNITUDE_NAME_8, 0.0, 1.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_0, INHARMONICITY_NAME_0, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_1, INHARMONICITY_NAME_1, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_2, INHARMONICITY_NAME_2, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_3, INHARMONICITY_NAME_3, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_4, INHARMONICITY_NAME_4, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_5, INHARMONICITY_NAME_5, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_6, INHARMONICITY_NAME_6, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_7, INHARMONICITY_NAME_7, -50.0, 50.0, 0.0),
-            std::make_unique<AudioParameterFloat>(INHARMONICITY_ID_8, INHARMONICITY_NAME_8, -50.0, 50.0, 0.0)
+
+            std::make_unique<AudioParameterFloat>(PITCH_ID, PITCH_NAME, 0.0, 36.0, 0.0),
+            std::make_unique<AudioParameterFloat>(PITCHDECAY_ID, PITCHDECAY_NAME, 0.0, 5000.0, 10.0),
+
+            std::make_unique<AudioParameterFloat>(DRIVE_ID, DRIVE_NAME, 0.0, 48.0, 0.0),
+            std::make_unique<AudioParameterFloat>(DRIVEDECAY_ID, DRIVEDECAY_NAME, 0.0, 5000.0, 10.0),
+
+            std::make_unique<AudioParameterFloat>(GAIN_ID, GAIN_NAME, 0.0, 1.0, 0.0)
         }),
     attack_0(20.0),
     attack_1(20.0),
@@ -122,15 +121,11 @@ FusionAudioProcessor::FusionAudioProcessor()
     magnitude_6(0.0),
     magnitude_7(0.0),
     magnitude_8(0.0),
-    inharmonicity_0(0.0),
-    inharmonicity_1(0.0),
-    inharmonicity_2(0.0),
-    inharmonicity_3(0.0),
-    inharmonicity_4(0.0),
-    inharmonicity_5(0.0),
-    inharmonicity_6(0.0),
-    inharmonicity_7(0.0),
-    inharmonicity_8(0.0)
+    pitch(0.0),
+    pitchDecay(10.0),
+    drive(0.0),
+    driveDecay(10.0),
+    gain(0.0)
 
 #endif
 {
@@ -393,32 +388,22 @@ double FusionAudioProcessor::getTreeStateValues(int token) {
         return magnitude_8;
     }
 
-    else if (token == 50) {
-        return inharmonicity_0;
+    else if (token == 100) {
+        return pitch;
     }
-    else if (token == 51) {
-        return inharmonicity_1;
+    else if (token == 101) {
+        return pitchDecay;
     }
-    else if (token == 52) {
-        return inharmonicity_2;
+
+    else if (token == 102) {
+        return drive;
     }
-    else if (token == 53) {
-        return inharmonicity_3;
+    else if (token == 103) {
+            return driveDecay;
     }
-    else if (token == 54) {
-        return inharmonicity_4;
-    }
-    else if (token == 55) {
-        return inharmonicity_5;
-    }
-    else if (token == 56) {
-        return inharmonicity_6;
-    }
-    else if (token == 57) {
-        return inharmonicity_7;
-    }
-    else if (token == 58) {
-        return inharmonicity_8;
+
+    else if (token == 104) {
+        return gain;
     }
 }
 
@@ -476,27 +461,27 @@ void FusionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
     magnitude_7 = *treeState.getRawParameterValue(MAGNITUDE_ID_7);
     magnitude_8 = *treeState.getRawParameterValue(MAGNITUDE_ID_8);
 
-    inharmonicity_0 = *treeState.getRawParameterValue(INHARMONICITY_ID_0);
-    inharmonicity_1 = *treeState.getRawParameterValue(INHARMONICITY_ID_1);
-    inharmonicity_2 = *treeState.getRawParameterValue(INHARMONICITY_ID_2);
-    inharmonicity_3 = *treeState.getRawParameterValue(INHARMONICITY_ID_3);
-    inharmonicity_4 = *treeState.getRawParameterValue(INHARMONICITY_ID_4);
-    inharmonicity_5 = *treeState.getRawParameterValue(INHARMONICITY_ID_5);
-    inharmonicity_6 = *treeState.getRawParameterValue(INHARMONICITY_ID_6);
-    inharmonicity_7 = *treeState.getRawParameterValue(INHARMONICITY_ID_7);
-    inharmonicity_8 = *treeState.getRawParameterValue(INHARMONICITY_ID_8);
+    pitch = *treeState.getRawParameterValue(PITCH_ID);
+    pitchDecay = *treeState.getRawParameterValue(PITCHDECAY_ID);
+
+    drive = *treeState.getRawParameterValue(DRIVE_ID);
+    driveDecay = *treeState.getRawParameterValue(DRIVEDECAY_ID);
+
+    gain = *treeState.getRawParameterValue(GAIN_ID);
 
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
-            voice->getParameters_0(attack_0, decay_0, sustain_0, release_0, magnitude_0, inharmonicity_0);
-            voice->getParameters_1(attack_1, decay_1, sustain_1, release_1, magnitude_1, inharmonicity_1);
-            voice->getParameters_2(attack_2, decay_2, sustain_2, release_2, magnitude_2, inharmonicity_2);
-            voice->getParameters_3(attack_3, decay_3, sustain_3, release_3, magnitude_3, inharmonicity_3);
-            voice->getParameters_4(attack_4, decay_4, sustain_4, release_4, magnitude_4, inharmonicity_4);
-            voice->getParameters_5(attack_5, decay_5, sustain_5, release_5, magnitude_5, inharmonicity_5);
-            voice->getParameters_6(attack_6, decay_6, sustain_6, release_6, magnitude_6, inharmonicity_6);
-            voice->getParameters_7(attack_7, decay_7, sustain_7, release_7, magnitude_7, inharmonicity_7);
-            voice->getParameters_8(attack_8, decay_8, sustain_8, release_8, magnitude_8, inharmonicity_8);
+            voice->getPitchParameters(pitch, pitchDecay);
+            voice->getDriveParameters(drive, driveDecay);
+            voice->getParameters_0(attack_0, decay_0, sustain_0, release_0, magnitude_0);
+            voice->getParameters_1(attack_1, decay_1, sustain_1, release_1, magnitude_1);
+            voice->getParameters_2(attack_2, decay_2, sustain_2, release_2, magnitude_2);
+            voice->getParameters_3(attack_3, decay_3, sustain_3, release_3, magnitude_3);
+            voice->getParameters_4(attack_4, decay_4, sustain_4, release_4, magnitude_4);
+            voice->getParameters_5(attack_5, decay_5, sustain_5, release_5, magnitude_5);
+            voice->getParameters_6(attack_6, decay_6, sustain_6, release_6, magnitude_6);
+            voice->getParameters_7(attack_7, decay_7, sustain_7, release_7, magnitude_7);
+            voice->getParameters_8(attack_8, decay_8, sustain_8, release_8, magnitude_8);
         }
     }
 

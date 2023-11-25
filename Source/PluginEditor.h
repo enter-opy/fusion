@@ -14,6 +14,103 @@
 //==============================================================================
 /**
 */
+class SliderLookAndFeelOdd : public LookAndFeel_V4 {
+public:
+    void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderPos, float rotatoryStartAngle, float rotatoryEndAngle, juce::Slider& slider) override {
+        float diameter = jmin(width - 5, height - 5);
+        float radius = diameter / 2;
+        float centerX = x + width / 2;
+        float centerY = y + height / 2;
+        float rx = centerX - radius;
+        float ry = centerY - radius;
+        float angle = rotatoryStartAngle + sliderPos * (rotatoryEndAngle - rotatoryStartAngle);
+
+        Rectangle<float> area(rx, ry, diameter, diameter);
+
+        g.setColour(Colour::fromFloatRGBA(0.0, 0.0, 0.0, 0.25));
+        g.fillEllipse(area);
+
+        // Inner shadow workaround by https://forum.juce.com/u/crushedpixel/summary
+        Path shadowPath;
+        shadowPath.addEllipse(area);
+        shadowPath.setUsingNonZeroWinding(false);
+
+        Rectangle<float> clipArea(rx - 3.0, ry - 3.0, diameter + 5.0, diameter + 5.0);
+        Path clipPath;
+        clipPath.addEllipse(clipArea);
+        g.reduceClipRegion(clipPath);
+
+        DropShadow sliderShadow(Colour::fromRGBA(0xFF, 0x40, 0xE0, 0x40), 10, Point<int>(5, 5));
+        sliderShadow.drawForPath(g, shadowPath);
+
+        Path thumb;
+        thumb.addEllipse(0, -radius + 10.0, 10.0f, 10.0f);
+
+        g.setColour(Colour::fromRGB(0xFF, 0x40, 0xE0));
+        g.fillPath(thumb, AffineTransform::rotation(angle).translated(centerX, centerY));
+        g.drawEllipse(area, 4.0f);
+    }
+};
+
+class SliderLookAndFeelEven : public LookAndFeel_V4 {
+public:
+    void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderPos, float rotatoryStartAngle, float rotatoryEndAngle, juce::Slider& slider) override {
+        float diameter = jmin(width - 5, height - 5);
+        float radius = diameter / 2;
+        float centerX = x + width / 2;
+        float centerY = y + height / 2;
+        float rx = centerX - radius;
+        float ry = centerY - radius;
+        float angle = rotatoryStartAngle + sliderPos * (rotatoryEndAngle - rotatoryStartAngle);
+
+        Rectangle<float> area(rx, ry, diameter, diameter);
+
+        g.setColour(Colour::fromRGBA(0xFF, 0xFF, 0xFF, 0x40));
+        g.fillEllipse(area);
+
+        Path thumb;
+        thumb.addEllipse(0, -radius + 10.0, 10.0f, 10.0f);
+
+        g.setColour(Colour::fromRGB(0xFF, 0xA0, 0xF0));
+        g.fillPath(thumb, AffineTransform::rotation(angle).translated(centerX, centerY));
+        g.drawEllipse(area, 4.0f);
+    }
+};
+
+class SliderLookAndFeelLinearVertical : public LookAndFeel_V4 {
+public:
+    void drawLinearSlider(Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, Slider::SliderStyle sliderStyle, Slider& slider) override {
+        Rectangle<float> area(0, 0, width + 2 * x, height + 2 * y);
+
+        g.setColour(Colour::fromRGBA(0xFF, 0xFF, 0xFF, 0x40));
+        g.fillRect(area);
+
+        float mappedSliderPos = (sliderPos - y) * (height + 2 * y) / (height);
+
+        Rectangle<float> barArea(0, mappedSliderPos, width + 2 * x, height + 2 * y);
+
+        g.setColour(Colour::fromRGBA(0xFF, 0xFF, 0xFF, 0xA0));
+        g.fillRect(barArea);
+    }
+};
+
+class SliderLookAndFeelLinearHorizontal : public LookAndFeel_V4 {
+public:
+    void drawLinearSlider(Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, Slider::SliderStyle sliderStyle, Slider& slider) override {
+        Rectangle<float> area(0, 0, width + 2 * x, height + 2 * y);
+
+        g.setColour(Colour::fromRGBA(0xFF, 0xFF, 0xFF, 0x40));
+        g.fillRect(area);
+
+        float mappedSliderPos = (sliderPos - x) * (width + 2 * x) / (width);
+
+        Rectangle<float> barArea(0, 0, mappedSliderPos, height + 2 * y);
+
+        g.setColour(Colour::fromRGBA(0xFF, 0xFF, 0xFF, 0xA0));
+        g.fillRect(barArea);
+    }
+};
+
 class FusionAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
@@ -77,15 +174,119 @@ private:
     Slider magnitudeSlider_7;
     Slider magnitudeSlider_8;
 
-    Slider inharmonicitySlider_0;
-    Slider inharmonicitySlider_1;
-    Slider inharmonicitySlider_2;
-    Slider inharmonicitySlider_3;
-    Slider inharmonicitySlider_4;
-    Slider inharmonicitySlider_5;
-    Slider inharmonicitySlider_6;
-    Slider inharmonicitySlider_7;
-    Slider inharmonicitySlider_8;
+    Slider pitchSlider;
+    Slider pitchDecaySlider;
+
+    Slider driveSlider;
+    Slider driveDecaySlider;
+
+    Slider gainSlider;
+
+    Rectangle<float> oscillatorRectangle0;
+    Rectangle<float> oscillatorRectangle2;
+    Rectangle<float> oscillatorRectangle4;
+    Rectangle<float> oscillatorRectangle6;
+    Rectangle<float> oscillatorRectangle8;
+
+    SliderLookAndFeelOdd attackSlider0LookAndFeel;
+    SliderLookAndFeelEven attackSlider1LookAndFeel;
+    SliderLookAndFeelOdd attackSlider2LookAndFeel;
+    SliderLookAndFeelEven attackSlider3LookAndFeel;
+    SliderLookAndFeelOdd attackSlider4LookAndFeel;
+    SliderLookAndFeelEven attackSlider5LookAndFeel;
+    SliderLookAndFeelOdd attackSlider6LookAndFeel;
+    SliderLookAndFeelEven attackSlider7LookAndFeel;
+    SliderLookAndFeelOdd attackSlider8LookAndFeel;
+
+    SliderLookAndFeelOdd decaySlider0LookAndFeel;
+    SliderLookAndFeelEven decaySlider1LookAndFeel;
+    SliderLookAndFeelOdd decaySlider2LookAndFeel;
+    SliderLookAndFeelEven decaySlider3LookAndFeel;
+    SliderLookAndFeelOdd decaySlider4LookAndFeel;
+    SliderLookAndFeelEven decaySlider5LookAndFeel;
+    SliderLookAndFeelOdd decaySlider6LookAndFeel;
+    SliderLookAndFeelEven decaySlider7LookAndFeel;
+    SliderLookAndFeelOdd decaySlider8LookAndFeel;
+
+    SliderLookAndFeelOdd sustainSlider0LookAndFeel;
+    SliderLookAndFeelEven sustainSlider1LookAndFeel;
+    SliderLookAndFeelOdd sustainSlider2LookAndFeel;
+    SliderLookAndFeelEven sustainSlider3LookAndFeel;
+    SliderLookAndFeelOdd sustainSlider4LookAndFeel;
+    SliderLookAndFeelEven sustainSlider5LookAndFeel;
+    SliderLookAndFeelOdd sustainSlider6LookAndFeel;
+    SliderLookAndFeelEven sustainSlider7LookAndFeel;
+    SliderLookAndFeelOdd sustainSlider8LookAndFeel;
+
+    SliderLookAndFeelOdd releaseSlider0LookAndFeel;
+    SliderLookAndFeelEven releaseSlider1LookAndFeel;
+    SliderLookAndFeelOdd releaseSlider2LookAndFeel;
+    SliderLookAndFeelEven releaseSlider3LookAndFeel;
+    SliderLookAndFeelOdd releaseSlider4LookAndFeel;
+    SliderLookAndFeelEven releaseSlider5LookAndFeel;
+    SliderLookAndFeelOdd releaseSlider6LookAndFeel;
+    SliderLookAndFeelEven releaseSlider7LookAndFeel;
+    SliderLookAndFeelOdd releaseSlider8LookAndFeel;
+
+    SliderLookAndFeelLinearVertical magnitudeSlider0LookAndFeel;
+    SliderLookAndFeelLinearHorizontal magnitudeSlider1LookAndFeel;
+    SliderLookAndFeelLinearVertical magnitudeSlider2LookAndFeel;
+    SliderLookAndFeelLinearVertical magnitudeSlider3LookAndFeel;
+    SliderLookAndFeelLinearHorizontal magnitudeSlider4LookAndFeel;
+    SliderLookAndFeelLinearVertical magnitudeSlider5LookAndFeel;
+    SliderLookAndFeelLinearVertical magnitudeSlider6LookAndFeel;
+    SliderLookAndFeelLinearHorizontal magnitudeSlider7LookAndFeel;
+    SliderLookAndFeelLinearVertical magnitudeSlider8LookAndFeel;
+
+    SliderLookAndFeelEven pitchSliderLookAndFeel;
+    SliderLookAndFeelEven pitchDecaySliderLookAndFeel;
+
+    SliderLookAndFeelOdd driveSliderLookAndFeel;
+    SliderLookAndFeelOdd driveDecaySliderLookAndFeel;
+
+    SliderLookAndFeelEven gainSliderLookAndFeel;
+
+    Label attackSlider0Label;
+    Label attackSlider1Label;
+    Label attackSlider2Label;
+    Label attackSlider3Label;
+    Label attackSlider4Label;
+    Label attackSlider5Label;
+    Label attackSlider6Label;
+    Label attackSlider7Label;
+    Label attackSlider8Label;
+
+    Label decaySlider0Label;
+    Label decaySlider1Label;
+    Label decaySlider2Label;
+    Label decaySlider3Label;
+    Label decaySlider4Label;
+    Label decaySlider5Label;
+    Label decaySlider6Label;
+    Label decaySlider7Label;
+    Label decaySlider8Label;
+
+    Label sustainSlider0Label;
+    Label sustainSlider1Label;
+    Label sustainSlider2Label;
+    Label sustainSlider3Label;
+    Label sustainSlider4Label;
+    Label sustainSlider5Label;
+    Label sustainSlider6Label;
+    Label sustainSlider7Label;
+    Label sustainSlider8Label;
+
+    Label releaseSlider0Label;
+    Label releaseSlider1Label;
+    Label releaseSlider2Label;
+    Label releaseSlider3Label;
+    Label releaseSlider4Label;
+    Label releaseSlider5Label;
+    Label releaseSlider6Label;
+    Label releaseSlider7Label;
+    Label releaseSlider8Label;
+
+    Typeface::Ptr customFont = juce::Typeface::createSystemTypefaceFor(BinaryData::MuseoModernoSemiBold_ttf, BinaryData::MuseoModernoSemiBold_ttfSize);
    
 public:
     std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> attackValue_0;
@@ -138,15 +339,13 @@ public:
     std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_7;
     std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> magnitudeValue_8;
 
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_0;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_1;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_2;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_3;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_4;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_5;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_6;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_7;
-    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> inharmonicityValue_8;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> pitchValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> pitchDecayValue;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> driveValue;
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> driveDecayValue;
+
+    std::unique_ptr <AudioProcessorValueTreeState::SliderAttachment> gainValue;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FusionAudioProcessorEditor)
 };

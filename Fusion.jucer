@@ -12,6 +12,10 @@
         <FILE id="JnPJCY" name="stb_vorbis.c" compile="1" resource="0" file="../../../../Maximilian/stb_vorbis.c"/>
         <FILE id="NbhNax" name="stb_vorbis.h" compile="0" resource="0" file="../../../../Maximilian/stb_vorbis.h"/>
       </GROUP>
+      <GROUP id="{C6CC705F-D9C9-2AD3-7B6E-DFD3E9A6A32B}" name="Assets">
+        <FILE id="Q2iuEk" name="MuseoModerno-SemiBold.ttf" compile="0" resource="1"
+              file="Source/Assets/MuseoModerno-SemiBold.ttf"/>
+      </GROUP>
       <FILE id="vU6JEI" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
       <FILE id="AzhhUQ" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
       <FILE id="vf0swG" name="PluginProcessor.cpp" compile="1" resource="0"
