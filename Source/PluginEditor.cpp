@@ -411,7 +411,7 @@ FusionAudioProcessorEditor::FusionAudioProcessorEditor (FusionAudioProcessor& p)
     addAndMakeVisible(&driveSlider);
 
     driveDecaySlider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    driveDecaySlider.setRange(0.0, 5000.0, 0.01);
+    driveDecaySlider.setRange(0.0, 5000.0, 0.001);
     driveDecaySlider.setSkewFactorFromMidPoint(100.0);
     driveDecaySlider.setValue(audioProcessor.getTreeStateValues(103));
     driveDecaySlider.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
@@ -419,231 +419,327 @@ FusionAudioProcessorEditor::FusionAudioProcessorEditor (FusionAudioProcessor& p)
     addAndMakeVisible(&driveDecaySlider);
 
     gainSlider.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
-    gainSlider.setRange(0.0, 1.0, 0.1);
+    gainSlider.setRange(-20.0, 20.0, 0.01);
     gainSlider.setValue(audioProcessor.getTreeStateValues(104));
     gainSlider.setTextBoxStyle(Slider::NoTextBox, false, 0, 0);
     gainSlider.setLookAndFeel(&gainSliderLookAndFeel);
     addAndMakeVisible(&gainSlider);
 
-    attackSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider0Label.setJustificationType(Justification::centred);
-    attackSlider0Label.setText("A", dontSendNotification);
+    attackSlider0Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider0Label);
 
-    attackSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider1Label.setJustificationType(Justification::centred);
-    attackSlider1Label.setText("A", dontSendNotification);
+    attackSlider1Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider1Label);
 
-    attackSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider2Label.setJustificationType(Justification::centred);
-    attackSlider2Label.setText("A", dontSendNotification);
+    attackSlider2Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider2Label);
 
-    attackSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider3Label.setJustificationType(Justification::centred);
-    attackSlider3Label.setText("A", dontSendNotification);
+    attackSlider3Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider3Label);
 
-    attackSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider4Label.setJustificationType(Justification::centred);
-    attackSlider4Label.setText("A", dontSendNotification);
+    attackSlider4Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider4Label);
 
-    attackSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider5Label.setJustificationType(Justification::centred);
-    attackSlider5Label.setText("A", dontSendNotification);
+    attackSlider5Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider5Label);
 
-    attackSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider6Label.setJustificationType(Justification::centred);
-    attackSlider6Label.setText("A", dontSendNotification);
+    attackSlider6Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider6Label);
 
-    attackSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider7Label.setJustificationType(Justification::centred);
-    attackSlider7Label.setText("A", dontSendNotification);
+    attackSlider7Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider7Label);
 
-    attackSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    attackSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     attackSlider8Label.setJustificationType(Justification::centred);
-    attackSlider8Label.setText("A", dontSendNotification);
+    attackSlider8Label.setText("Attack", dontSendNotification);
     addAndMakeVisible(&attackSlider8Label);
 
-    decaySlider0Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider0Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider0Label.setJustificationType(Justification::centred);
-    decaySlider0Label.setText("D", dontSendNotification);
+    decaySlider0Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider0Label);
 
-    decaySlider1Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider1Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider1Label.setJustificationType(Justification::centred);
-    decaySlider1Label.setText("D", dontSendNotification);
+    decaySlider1Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider1Label);
 
-    decaySlider2Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider2Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider2Label.setJustificationType(Justification::centred);
-    decaySlider2Label.setText("D", dontSendNotification);
+    decaySlider2Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider2Label);
 
-    decaySlider3Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider3Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider3Label.setJustificationType(Justification::centred);
-    decaySlider3Label.setText("D", dontSendNotification);
+    decaySlider3Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider3Label);
 
-    decaySlider4Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider4Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider4Label.setJustificationType(Justification::centred);
-    decaySlider4Label.setText("D", dontSendNotification);
+    decaySlider4Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider4Label);
 
-    decaySlider5Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider5Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider5Label.setJustificationType(Justification::centred);
-    decaySlider5Label.setText("D", dontSendNotification);
+    decaySlider5Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider5Label);
 
-    decaySlider6Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider6Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider6Label.setJustificationType(Justification::centred);
-    decaySlider6Label.setText("D", dontSendNotification);
+    decaySlider6Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider6Label);
 
-    decaySlider7Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider7Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider7Label.setJustificationType(Justification::centred);
-    decaySlider7Label.setText("D", dontSendNotification);
+    decaySlider7Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider7Label);
 
-    decaySlider8Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    decaySlider8Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     decaySlider8Label.setJustificationType(Justification::centred);
-    decaySlider8Label.setText("D", dontSendNotification);
+    decaySlider8Label.setText("Decay", dontSendNotification);
     addAndMakeVisible(&decaySlider8Label);
 
-    sustainSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider0Label.setJustificationType(Justification::centred);
-    sustainSlider0Label.setText("S", dontSendNotification);
+    sustainSlider0Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider0Label);
 
-    sustainSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider1Label.setJustificationType(Justification::centred);
-    sustainSlider1Label.setText("S", dontSendNotification);
+    sustainSlider1Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider1Label);
 
-    sustainSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider2Label.setJustificationType(Justification::centred);
-    sustainSlider2Label.setText("S", dontSendNotification);
+    sustainSlider2Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider2Label);
 
-    sustainSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider3Label.setJustificationType(Justification::centred);
-    sustainSlider3Label.setText("S", dontSendNotification);
+    sustainSlider3Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider3Label);
 
-    sustainSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider4Label.setJustificationType(Justification::centred);
-    sustainSlider4Label.setText("S", dontSendNotification);
+    sustainSlider4Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider4Label);
 
-    sustainSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider5Label.setJustificationType(Justification::centred);
-    sustainSlider5Label.setText("S", dontSendNotification);
+    sustainSlider5Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider5Label);
 
-    sustainSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider6Label.setJustificationType(Justification::centred);
-    sustainSlider6Label.setText("S", dontSendNotification);
+    sustainSlider6Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider6Label);
 
-    sustainSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider7Label.setJustificationType(Justification::centred);
-    sustainSlider7Label.setText("S", dontSendNotification);
+    sustainSlider7Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider7Label);
 
-    sustainSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    sustainSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     sustainSlider8Label.setJustificationType(Justification::centred);
-    sustainSlider8Label.setText("S", dontSendNotification);
+    sustainSlider8Label.setText("Sustain", dontSendNotification);
     addAndMakeVisible(&sustainSlider8Label);
 
-    releaseSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider0Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider0Label.setJustificationType(Justification::centred);
-    releaseSlider0Label.setText("R", dontSendNotification);
+    releaseSlider0Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider0Label);
 
-    releaseSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider1Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider1Label.setJustificationType(Justification::centred);
-    releaseSlider1Label.setText("R", dontSendNotification);
+    releaseSlider1Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider1Label);
 
-    releaseSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider2Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider2Label.setJustificationType(Justification::centred);
-    releaseSlider2Label.setText("R", dontSendNotification);
+    releaseSlider2Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider2Label);
 
-    releaseSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider3Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider3Label.setJustificationType(Justification::centred);
-    releaseSlider3Label.setText("R", dontSendNotification);
+    releaseSlider3Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider3Label);
 
-    releaseSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider4Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider4Label.setJustificationType(Justification::centred);
-    releaseSlider4Label.setText("R", dontSendNotification);
+    releaseSlider4Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider4Label);
 
-    releaseSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider5Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider5Label.setJustificationType(Justification::centred);
-    releaseSlider5Label.setText("R", dontSendNotification);
+    releaseSlider5Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider5Label);
 
-    releaseSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider6Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider6Label.setJustificationType(Justification::centred);
-    releaseSlider6Label.setText("R", dontSendNotification);
+    releaseSlider6Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider6Label);
 
-    releaseSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider7Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider7Label.setJustificationType(Justification::centred);
-    releaseSlider7Label.setText("R", dontSendNotification);
+    releaseSlider7Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider7Label);
 
-    releaseSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0x70, 0x10, 0x70));
+    releaseSlider8Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
     releaseSlider8Label.setJustificationType(Justification::centred);
-    releaseSlider8Label.setText("R", dontSendNotification);
+    releaseSlider8Label.setText("Release", dontSendNotification);
     addAndMakeVisible(&releaseSlider8Label);
 
-    attackSlider0Label.setFont(Font(customFont).withHeight(18));
-    attackSlider1Label.setFont(Font(customFont).withHeight(18));
-    attackSlider2Label.setFont(Font(customFont).withHeight(18));
-    attackSlider3Label.setFont(Font(customFont).withHeight(18));
-    attackSlider4Label.setFont(Font(customFont).withHeight(18));
-    attackSlider5Label.setFont(Font(customFont).withHeight(18));
-    attackSlider6Label.setFont(Font(customFont).withHeight(18));
-    attackSlider7Label.setFont(Font(customFont).withHeight(18));
-    attackSlider8Label.setFont(Font(customFont).withHeight(18));
+    attackSlider0Label.setFont(Font(customFont).withHeight(15));
+    attackSlider1Label.setFont(Font(customFont).withHeight(15));
+    attackSlider2Label.setFont(Font(customFont).withHeight(15));
+    attackSlider3Label.setFont(Font(customFont).withHeight(15));
+    attackSlider4Label.setFont(Font(customFont).withHeight(15));
+    attackSlider5Label.setFont(Font(customFont).withHeight(15));
+    attackSlider6Label.setFont(Font(customFont).withHeight(15));
+    attackSlider7Label.setFont(Font(customFont).withHeight(15));
+    attackSlider8Label.setFont(Font(customFont).withHeight(15));
 
-    decaySlider0Label.setFont(Font(customFont).withHeight(18));
-    decaySlider1Label.setFont(Font(customFont).withHeight(18));
-    decaySlider2Label.setFont(Font(customFont).withHeight(18));
-    decaySlider3Label.setFont(Font(customFont).withHeight(18));
-    decaySlider4Label.setFont(Font(customFont).withHeight(18));
-    decaySlider5Label.setFont(Font(customFont).withHeight(18));
-    decaySlider6Label.setFont(Font(customFont).withHeight(18));
-    decaySlider7Label.setFont(Font(customFont).withHeight(18));
-    decaySlider8Label.setFont(Font(customFont).withHeight(18));
+    decaySlider0Label.setFont(Font(customFont).withHeight(15));
+    decaySlider1Label.setFont(Font(customFont).withHeight(15));
+    decaySlider2Label.setFont(Font(customFont).withHeight(15));
+    decaySlider3Label.setFont(Font(customFont).withHeight(15));
+    decaySlider4Label.setFont(Font(customFont).withHeight(15));
+    decaySlider5Label.setFont(Font(customFont).withHeight(15));
+    decaySlider6Label.setFont(Font(customFont).withHeight(15));
+    decaySlider7Label.setFont(Font(customFont).withHeight(15));
+    decaySlider8Label.setFont(Font(customFont).withHeight(15));
 
-    sustainSlider0Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider1Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider2Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider3Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider4Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider5Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider6Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider7Label.setFont(Font(customFont).withHeight(18));
-    sustainSlider8Label.setFont(Font(customFont).withHeight(18));
+    sustainSlider0Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider1Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider2Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider3Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider4Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider5Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider6Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider7Label.setFont(Font(customFont).withHeight(15));
+    sustainSlider8Label.setFont(Font(customFont).withHeight(15));
 
-    releaseSlider0Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider1Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider2Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider3Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider4Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider5Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider6Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider7Label.setFont(Font(customFont).withHeight(18));
-    releaseSlider8Label.setFont(Font(customFont).withHeight(18));
+    releaseSlider0Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider1Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider2Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider3Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider4Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider5Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider6Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider7Label.setFont(Font(customFont).withHeight(15));
+    releaseSlider8Label.setFont(Font(customFont).withHeight(15));
+
+    oscillator0Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator0Label.setJustificationType(Justification::centred);
+    oscillator0Label.setText("OSC 1", dontSendNotification);
+    oscillator0Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator0Label);
+
+    oscillator1Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator1Label.setJustificationType(Justification::centred);
+    oscillator1Label.setText("OSC 2", dontSendNotification);
+    oscillator1Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator1Label);
+
+    oscillator2Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator2Label.setJustificationType(Justification::centred);
+    oscillator2Label.setText("OSC 3", dontSendNotification);
+    oscillator2Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator2Label);
+
+    oscillator3Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator3Label.setJustificationType(Justification::centred);
+    oscillator3Label.setText("OSC 4", dontSendNotification);
+    oscillator3Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator3Label);
+
+    oscillator4Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator4Label.setJustificationType(Justification::centred);
+    oscillator4Label.setText("OSC 5", dontSendNotification);
+    oscillator4Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator4Label);
+
+    oscillator5Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator5Label.setJustificationType(Justification::centred);
+    oscillator5Label.setText("OSC 6", dontSendNotification);
+    oscillator5Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator5Label);
+
+    oscillator6Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator6Label.setJustificationType(Justification::centred);
+    oscillator6Label.setText("OSC 7", dontSendNotification);
+    oscillator6Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator6Label);
+
+    oscillator7Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator7Label.setJustificationType(Justification::centred);
+    oscillator7Label.setText("OSC 8", dontSendNotification);
+    oscillator7Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator7Label);
+
+    oscillator8Label.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    oscillator8Label.setJustificationType(Justification::centred);
+    oscillator8Label.setText("OSC 9", dontSendNotification);
+    oscillator8Label.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&oscillator8Label);
+
+    pitchLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    pitchLabel.setJustificationType(Justification::left);
+    pitchLabel.setText("Pitch", dontSendNotification);
+    pitchLabel.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&pitchLabel);
+
+    driveLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    driveLabel.setJustificationType(Justification::left);
+    driveLabel.setText("Drive", dontSendNotification);
+    driveLabel.setFont(Font(customFont).withHeight(20));
+    addAndMakeVisible(&driveLabel);
+
+    volumeLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    volumeLabel.setJustificationType(Justification::centred);
+    volumeLabel.setText("Volume", dontSendNotification);
+    volumeLabel.setFont(Font(customFont).withHeight(15));
+    addAndMakeVisible(&volumeLabel);
+
+    pitchSliderLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    pitchSliderLabel.setJustificationType(Justification::centred);
+    pitchSliderLabel.setText("Pitch", dontSendNotification);
+    pitchSliderLabel.setFont(Font(customFont).withHeight(15));
+    addAndMakeVisible(&pitchSliderLabel);
+
+    pitchDecaySliderLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    pitchDecaySliderLabel.setJustificationType(Justification::centred);
+    pitchDecaySliderLabel.setText("Decay", dontSendNotification);
+    pitchDecaySliderLabel.setFont(Font(customFont).withHeight(15));
+    addAndMakeVisible(&pitchDecaySliderLabel);
+
+    driveSliderLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    driveSliderLabel.setJustificationType(Justification::centred);
+    driveSliderLabel.setText("Drive", dontSendNotification);
+    driveSliderLabel.setFont(Font(customFont).withHeight(15));
+    addAndMakeVisible(&driveSliderLabel);
+
+    driveDecaySliderLabel.setColour(Label::textColourId, Colour::fromRGB(0xFF, 0x90, 0xF0));
+    driveDecaySliderLabel.setJustificationType(Justification::centred);
+    driveDecaySliderLabel.setText("Decay", dontSendNotification);
+    driveDecaySliderLabel.setFont(Font(customFont).withHeight(15));
+    addAndMakeVisible(&driveDecaySliderLabel);
 }
 
 FusionAudioProcessorEditor::~FusionAudioProcessorEditor()
@@ -658,12 +754,15 @@ void FusionAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll();
 
     DropShadow oscillatorShadow(Colour::fromFloatRGBA(0.0, 0.0, 0.0, 0.25), 10, Point<int>(5, 5));
+    DropShadow driveShadow(Colour::fromFloatRGBA(0.0, 0.0, 0.0, 0.25), 10, Point<int>(5, 5));
 
     oscillatorShadow.drawForRectangle(g, oscillatorRectangle0.toNearestInt());
     oscillatorShadow.drawForRectangle(g, oscillatorRectangle2.toNearestInt());
     oscillatorShadow.drawForRectangle(g, oscillatorRectangle4.toNearestInt());
     oscillatorShadow.drawForRectangle(g, oscillatorRectangle6.toNearestInt());
     oscillatorShadow.drawForRectangle(g, oscillatorRectangle8.toNearestInt());
+
+    driveShadow.drawForRectangle(g, driveRectangle.toNearestInt());
 
     ColourGradient backgroundGradient(Colour::fromRGB(0xE5, 0x10, 0xB5), 0, 0, Colour::fromRGB(0x70, 0x28, 0xA0), 0, getHeight(), false);
     g.setGradientFill(backgroundGradient);
@@ -673,6 +772,8 @@ void FusionAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillRect(oscillatorRectangle4);
     g.fillRect(oscillatorRectangle6);
     g.fillRect(oscillatorRectangle8);
+
+    g.fillRect(driveRectangle);
 
     DropShadow sliderShadow(Colour::fromFloatRGBA(0.0, 0.0, 0.0, 0.1), 5, Point<int>(2, 2));
     
@@ -799,51 +900,72 @@ void FusionAudioProcessorEditor::resized()
     oscillatorRectangle6.setBounds(0, 400, 200, 200);
     oscillatorRectangle8.setBounds(400, 400, 200, 200);
 
-    attackSlider0Label.setBounds(5, 5, 50, 50);
-    attackSlider1Label.setBounds(205, 5, 50, 50);
-    attackSlider2Label.setBounds(405, 5, 50, 50);
-    attackSlider3Label.setBounds(5, 205, 50, 50);
-    attackSlider4Label.setBounds(205, 205, 50, 50);
-    attackSlider5Label.setBounds(405, 205, 50, 50);
-    attackSlider6Label.setBounds(5, 405, 50, 50);
-    attackSlider7Label.setBounds(205, 405, 50, 50);
-    attackSlider8Label.setBounds(405, 405, 50, 50);
+    driveRectangle.setBounds(200, 600, 200, 130);
 
-    decaySlider0Label.setBounds(85, 5, 50, 50);
-    decaySlider1Label.setBounds(285, 5, 50, 50);
-    decaySlider2Label.setBounds(485, 5, 50, 50);
-    decaySlider3Label.setBounds(85, 205, 50, 50);
-    decaySlider4Label.setBounds(285, 205, 50, 50);
-    decaySlider5Label.setBounds(485, 205, 50, 50);
-    decaySlider6Label.setBounds(85, 405, 50, 50);
-    decaySlider7Label.setBounds(285, 405, 50, 50);
-    decaySlider8Label.setBounds(485, 405, 50, 50);
+    attackSlider0Label.setBounds(10, 90, 100, 20);
+    attackSlider1Label.setBounds(210, 90, 100, 20);
+    attackSlider2Label.setBounds(410, 90, 100, 20);
+    attackSlider3Label.setBounds(10, 290, 100, 20);
+    attackSlider4Label.setBounds(210, 290, 100, 20);
+    attackSlider5Label.setBounds(410, 290, 100, 20);
+    attackSlider6Label.setBounds(10, 490, 100, 20);
+    attackSlider7Label.setBounds(210, 490, 100, 20);
+    attackSlider8Label.setBounds(410, 490, 100, 20);
 
-    sustainSlider0Label.setBounds(5, 85, 50, 50);
-    sustainSlider1Label.setBounds(205, 85, 50, 50);
-    sustainSlider2Label.setBounds(405, 85, 50, 50);
-    sustainSlider3Label.setBounds(5, 285, 50, 50);
-    sustainSlider4Label.setBounds(205, 285, 50, 50);
-    sustainSlider5Label.setBounds(405, 285, 50, 50);
-    sustainSlider6Label.setBounds(5, 485, 50, 50);
-    sustainSlider7Label.setBounds(205, 485, 50, 50);
-    sustainSlider8Label.setBounds(405, 485, 50, 50);
+    decaySlider0Label.setBounds(90, 90, 100, 20);
+    decaySlider1Label.setBounds(290, 90, 100, 20);
+    decaySlider2Label.setBounds(490, 90, 100, 20);
+    decaySlider3Label.setBounds(90, 290, 100, 20);
+    decaySlider4Label.setBounds(290, 290, 100, 20);
+    decaySlider5Label.setBounds(490, 290, 100, 20);
+    decaySlider6Label.setBounds(90, 490, 100, 20);
+    decaySlider7Label.setBounds(290, 490, 100, 20);
+    decaySlider8Label.setBounds(490, 490, 100, 20);
 
-    releaseSlider0Label.setBounds(85, 85, 50, 50);
-    releaseSlider1Label.setBounds(285, 85, 50, 50);
-    releaseSlider2Label.setBounds(485, 85, 50, 50);
-    releaseSlider3Label.setBounds(85, 285, 50, 50);
-    releaseSlider4Label.setBounds(285, 285, 50, 50);
-    releaseSlider5Label.setBounds(485, 285, 50, 50);
-    releaseSlider6Label.setBounds(85, 485, 50, 50);
-    releaseSlider7Label.setBounds(285, 485, 50, 50);
-    releaseSlider8Label.setBounds(485, 485, 50, 50);
+    sustainSlider0Label.setBounds(10, 170, 100, 20);
+    sustainSlider1Label.setBounds(210, 170, 100, 20);
+    sustainSlider2Label.setBounds(410, 170, 100, 20);
+    sustainSlider3Label.setBounds(10, 370, 100, 20);
+    sustainSlider4Label.setBounds(210, 370, 100, 20);
+    sustainSlider5Label.setBounds(410, 370, 100, 20);
+    sustainSlider6Label.setBounds(10, 570, 100, 20);
+    sustainSlider7Label.setBounds(210, 570, 100, 20);
+    sustainSlider8Label.setBounds(410, 570, 100, 20);
+
+    releaseSlider0Label.setBounds(90, 170, 100, 20);
+    releaseSlider1Label.setBounds(290, 170, 100, 20);
+    releaseSlider2Label.setBounds(490, 170, 100, 20);
+    releaseSlider3Label.setBounds(90, 370, 100, 20);
+    releaseSlider4Label.setBounds(290, 370, 100, 20);
+    releaseSlider5Label.setBounds(490, 370, 100, 20);
+    releaseSlider6Label.setBounds(90, 570, 100, 20);
+    releaseSlider7Label.setBounds(290, 570, 100, 20);
+    releaseSlider8Label.setBounds(490, 570, 100, 20);
+
+    oscillator0Label.setBounds(50, 5, 100, 20);
+    oscillator1Label.setBounds(250, 5, 100, 20);
+    oscillator2Label.setBounds(450, 5, 100, 20);
+    oscillator3Label.setBounds(50, 205, 100, 20);
+    oscillator4Label.setBounds(250, 205, 100, 20);
+    oscillator5Label.setBounds(450, 205, 100, 20);
+    oscillator6Label.setBounds(50, 405, 100, 20);
+    oscillator7Label.setBounds(250, 405, 100, 20);
+    oscillator8Label.setBounds(450, 405, 100, 20);
+
+    pitchSliderLabel.setBounds(10, 690, 100, 20);
+    pitchDecaySliderLabel.setBounds(90, 690, 100, 20);
+    driveSliderLabel.setBounds(210, 690, 100, 20);
+    driveDecaySliderLabel.setBounds(290, 690, 100, 20);
+
+    pitchLabel.setBounds(10, 605, 100, 20);
+    driveLabel.setBounds(210, 605, 100, 20);
+    volumeLabel.setBounds(450, 690, 100, 20);
 
     pitchSlider.setBounds(30, 630, 60, 60);
     pitchDecaySlider.setBounds(110, 630, 60, 60);
 
     driveSlider.setBounds(230, 630, 60, 60);
-    driveDecaySlider.setBounds(315, 630, 60, 60);
+    driveDecaySlider.setBounds(310, 630, 60, 60);
 
-    gainSlider.setBounds(480, 630, 60, 60);
+    gainSlider.setBounds(470, 630, 60, 60);
 }

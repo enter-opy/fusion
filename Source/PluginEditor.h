@@ -188,6 +188,10 @@ private:
     Rectangle<float> oscillatorRectangle6;
     Rectangle<float> oscillatorRectangle8;
 
+    Rectangle<float> pitchRectangle;
+    Rectangle<float> driveRectangle;
+    Rectangle<float> volumeRectangle;
+
     SliderLookAndFeelOdd attackSlider0LookAndFeel;
     SliderLookAndFeelEven attackSlider1LookAndFeel;
     SliderLookAndFeelOdd attackSlider2LookAndFeel;
@@ -285,6 +289,25 @@ private:
     Label releaseSlider6Label;
     Label releaseSlider7Label;
     Label releaseSlider8Label;
+
+    Label pitchSliderLabel;
+    Label pitchDecaySliderLabel;
+    Label driveSliderLabel;
+    Label driveDecaySliderLabel;
+
+    Label oscillator0Label;
+    Label oscillator1Label;
+    Label oscillator2Label;
+    Label oscillator3Label;
+    Label oscillator4Label;
+    Label oscillator5Label;
+    Label oscillator6Label;
+    Label oscillator7Label;
+    Label oscillator8Label;
+
+    Label pitchLabel;
+    Label driveLabel;
+    Label volumeLabel;
 
     Typeface::Ptr customFont = juce::Typeface::createSystemTypefaceFor(BinaryData::MuseoModernoSemiBold_ttf, BinaryData::MuseoModernoSemiBold_ttfSize);
    

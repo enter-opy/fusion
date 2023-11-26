@@ -40,6 +40,7 @@ FusionAudioProcessor::FusionAudioProcessor()
             std::make_unique<AudioParameterFloat>(DECAY_ID_6, DECAY_NAME_6, 0.0, 2000.0, 100.0),
             std::make_unique<AudioParameterFloat>(DECAY_ID_7, DECAY_NAME_7, 0.0, 2000.0, 100.0),
             std::make_unique<AudioParameterFloat>(DECAY_ID_8, DECAY_NAME_8, 0.0, 2000.0, 100.0),
+
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_0, SUSTAIN_NAME_0, 0.1, 1.0, 0.5),
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_1, SUSTAIN_NAME_1, 0.1, 1.0, 0.5),
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_2, SUSTAIN_NAME_2, 0.1, 1.0, 0.5),
@@ -49,6 +50,7 @@ FusionAudioProcessor::FusionAudioProcessor()
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_6, SUSTAIN_NAME_6, 0.1, 1.0, 0.5),
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_7, SUSTAIN_NAME_7, 0.1, 1.0, 0.5),
             std::make_unique<AudioParameterFloat>(SUSTAIN_ID_8, SUSTAIN_NAME_8, 0.1, 1.0, 0.5),
+
             std::make_unique<AudioParameterFloat>(RELEASE_ID_0, RELEASE_NAME_0, 0.0, 2000.0, 1000.0),
             std::make_unique<AudioParameterFloat>(RELEASE_ID_1, RELEASE_NAME_1, 0.0, 2000.0, 1000.0),
             std::make_unique<AudioParameterFloat>(RELEASE_ID_2, RELEASE_NAME_2, 0.0, 2000.0, 1000.0),
@@ -58,6 +60,7 @@ FusionAudioProcessor::FusionAudioProcessor()
             std::make_unique<AudioParameterFloat>(RELEASE_ID_6, RELEASE_NAME_6, 0.0, 2000.0, 1000.0),
             std::make_unique<AudioParameterFloat>(RELEASE_ID_7, RELEASE_NAME_7, 0.0, 2000.0, 1000.0),
             std::make_unique<AudioParameterFloat>(RELEASE_ID_8, RELEASE_NAME_8, 0.0, 2000.0, 1000.0),
+
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_0, MAGNITUDE_NAME_0, 0.0, 1.0, 1.0),
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_1, MAGNITUDE_NAME_1, 0.0, 1.0, 0.0),
             std::make_unique<AudioParameterFloat>(MAGNITUDE_ID_2, MAGNITUDE_NAME_2, 0.0, 1.0, 0.0),
@@ -71,10 +74,10 @@ FusionAudioProcessor::FusionAudioProcessor()
             std::make_unique<AudioParameterFloat>(PITCH_ID, PITCH_NAME, 0.0, 36.0, 0.0),
             std::make_unique<AudioParameterFloat>(PITCHDECAY_ID, PITCHDECAY_NAME, 0.0, 5000.0, 10.0),
 
-            std::make_unique<AudioParameterFloat>(DRIVE_ID, DRIVE_NAME, 0.0, 48.0, 0.0),
+            std::make_unique<AudioParameterFloat>(DRIVE_ID, DRIVE_NAME, 0.0, 20.0, 0.0),
             std::make_unique<AudioParameterFloat>(DRIVEDECAY_ID, DRIVEDECAY_NAME, 0.0, 5000.0, 10.0),
 
-            std::make_unique<AudioParameterFloat>(GAIN_ID, GAIN_NAME, 0.0, 1.0, 0.0)
+            std::make_unique<AudioParameterFloat>(GAIN_ID, GAIN_NAME, -20.0, 20.0, 0.0)
         }),
     attack_0(20.0),
     attack_1(20.0),
@@ -488,6 +491,8 @@ void FusionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
     buffer.clear();
 
     synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+
+    buffer.applyGain(Decibels::decibelsToGain(gain));
 }
 
 //==============================================================================
