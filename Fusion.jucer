@@ -6,11 +6,11 @@
               pluginManufacturer="vivek vijayan">
   <MAINGROUP id="SebvdF" name="Fusion">
     <GROUP id="{5436F244-CC2E-B03D-60FE-EA7D561DC523}" name="Source">
-      <GROUP id="{4C7491DB-BBF8-CDCB-E743-2AB14A253AA6}" name="Maximilian">
-        <FILE id="x8eXvg" name="maximilian.cpp" compile="1" resource="0" file="../../../../Maximilian/maximilian.cpp"/>
-        <FILE id="g3yyLl" name="maximilian.h" compile="0" resource="0" file="../../../../Maximilian/maximilian.h"/>
-        <FILE id="JnPJCY" name="stb_vorbis.c" compile="1" resource="0" file="../../../../Maximilian/stb_vorbis.c"/>
-        <FILE id="NbhNax" name="stb_vorbis.h" compile="0" resource="0" file="../../../../Maximilian/stb_vorbis.h"/>
+      <GROUP id="{AFEEC1C8-45DB-8963-E7B5-98411786178B}" name="Maximilian">
+        <FILE id="yS0C4e" name="maximilian.cpp" compile="1" resource="0" file="Maximilian/maximilian.cpp"/>
+        <FILE id="GqtBxr" name="maximilian.h" compile="0" resource="0" file="Maximilian/maximilian.h"/>
+        <FILE id="uleXK0" name="stb_vorbis.c" compile="1" resource="0" file="Maximilian/stb_vorbis.c"/>
+        <FILE id="YgwtxA" name="stb_vorbis.h" compile="0" resource="0" file="Maximilian/stb_vorbis.h"/>
       </GROUP>
       <GROUP id="{C6CC705F-D9C9-2AD3-7B6E-DFD3E9A6A32B}" name="Assets">
         <FILE id="Q2iuEk" name="MuseoModerno-SemiBold.ttf" compile="0" resource="1"
