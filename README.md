@@ -68,7 +68,7 @@ To build Fusion from source:
   - **Volume:** Controls the output gain.
 
 ## Contributing
-Contributions to Sound of music are welcome! If you'd like to contribute, follow these steps:
+Contributions to Fusion are welcome! If you'd like to contribute, follow these steps:
 1. **Fork the Repository:** Start by forking the [Fusion repository](https://github.com/enter-opy/fusion).
 2. **Make Changes:** Create a new branch, make your changes, and commit them to your branch.
 3. **Create a Pull Request:** Push your changes to your fork and submit a pull request to the original repository.
