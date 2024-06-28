@@ -44,23 +44,24 @@ To build Sound of music from source:
 
     There are 9 oscillators, OSC1 to OSC9, each producing a single sine wave with a frequency of \(f_n\) Hz where \(n\) is the oscillator number.
 
-    <img src="res/Osc.png" width="200">
+   <img src="res/Osc.png" width="200">
 
-  - **Attack:** Set the attack time (ms) of the oscillator.
-  - **Decat:** Set the decay time (ms) of the oscillator.
-  - **Sustain:** Set the sustain value (%) of the oscillator.
-  - **Release:** Set the release time (ms) of the oscillator.
-  - **Level:** Set the level of the oscillator.
+   - **Attack:** Set the attack time (ms) of the oscillator.
+   - **Decat:** Set the decay time (ms) of the oscillator.
+   - **Sustain:** Set the sustain value (%) of the oscillator.
+   - **Release:** Set the release time (ms) of the oscillator.
+   - **Level:** Adjust the bar slider to control the level of the oscillator.
 
 - **Adjust Effects Envelopes:**
-<img src="res/Env.png" width="500">
 
-    - **Pitch Envelope:**
-        - **Pitch:** Control the amount of pitch modulation.
-        - **Decay:** Set the decay time (ms) of the pitch envelope.
-    - **Drive Envelope:**
-        - **Pitch:** Control the amount of Drive modulation.
-        - **Decay:** Set the decay time (ms) of the pitch envelope.
+   <img src="res/Env.png" width="500">
+
+   - **Pitch Envelope:**
+      - **Pitch:** Control the amount of pitch modulation.
+      - **Decay:** Set the decay time (ms) of the pitch envelope.
+   - **Drive Envelope:**
+      - **Pitch:** Control the amount of Drive modulation.
+      - **Decay:** Set the decay time (ms) of the pitch envelope.
 - **Adjust Output Volume:**
   - **Volume:** Controls the output gain.
 
