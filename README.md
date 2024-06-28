@@ -27,6 +27,8 @@ To build Sound of music from source:
 2. **Install Dependencies:**
    - **Windows:** Make sure you have Visual Studio installed with the necessary components for C++ development.
    - **Mac:** Make sure you have Xcode installed with the command line tools.
+
+   Add [Maximilian](https://github.com/enter-opy/fusion/tree/main/Maximilian) to Header Search Paths.
 3. **Build the Plugin:**
 
    **Windows:**
