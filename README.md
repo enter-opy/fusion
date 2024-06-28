@@ -1,6 +1,6 @@
 <h1>Fusion</h2>
 
-<img src="res/Screenshot.png" width="600">
+<img src="res/Screenshot.png" width="500">
 
 <br>
 
