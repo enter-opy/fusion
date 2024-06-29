@@ -44,7 +44,7 @@ To build Fusion from source:
 - **Insert Plugin:** Load Sound of music plugin into your preferred digital audio workstation (DAW).
 - **Adjust Oscillator parameters:**
 
-    There are 9 oscillators, OSC1 to OSC9, each producing a single sine wave with a frequency of \(f_n\) Hz where \(n\) is the oscillator number.
+    There are 9 oscillators, OSC1 to OSC9, each producing a single sine wave with a frequency of $ f_n $ Hz where $ n $ is the oscillator number.
 
    <img src="res/Osc.png" width="175">
 
